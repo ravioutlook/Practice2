@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - openjdk11
+
+script:
+  - java --version
+  - mvn clean install
+
+notifications:
+  email: ravi.mergu@outlook.com
