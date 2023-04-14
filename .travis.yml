@@ -11,9 +11,9 @@ notifications:
 
 env:
   global:
-    # COVERITY_SCAN_TOKEN
+    COVERITY_SCAN_TOKEN: GyEw89NQ6JNoK2gAfM43WA
     # ** specific to your project **
-    - secure: "GyEw89NQ6JNoK2gAfM43WA"
+    #- secure: "GyEw89NQ6JNoK2gAfM43WA"
 
 addons:
   coverity_scan:
@@ -22,9 +22,6 @@ addons:
     # ** specific to your project **
     project:
       name: ravioutlook/Practice2
-      version: 1.0
-      description: My Project
-
     # Where email notification of build analysis results will be sent
     notification_email: ravi.mergu@outlook.com
 
