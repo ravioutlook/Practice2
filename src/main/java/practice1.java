@@ -30,7 +30,7 @@ public class practice1 {
            if (e instanceof Exception3) {
                 System.out.println( " handled exception3");
             } else {
-                System.out.println("NONfe");
+                System.out.println("else condition");
             }
         }
 
