@@ -1,3 +1,5 @@
+import java.sql.*;
+
 public class practice1 {
 
     public void m1() throws Exception1 {
@@ -23,6 +25,7 @@ public class practice1 {
 
         try {
             p.m();
+            p.runMysqlPS();
         } catch (Exception ex) {
 
             Throwable e = ex.getCause();
@@ -30,9 +33,25 @@ public class practice1 {
            if (e instanceof Exception3) {
                 System.out.println( " handled exception3");
             } else {
-                System.out.println("NONfe");
+                System.out.println("else condition");
             }
         }
 
+    }
+
+    private void runMysqlPS() throws SQLException, ClassNotFoundException {
+
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection connection= DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/sonoo","root","root");
+
+        String firstname = "firstname";
+        String lastname = "lastname";
+        String query = "SELECT id, firstname, lastname FROM authors WHERE firstname = ? and lastname = ?";
+        PreparedStatement pstmt = connection.prepareStatement( query );
+        pstmt.setString( 1, firstname );
+        pstmt.setString( 2, lastname );
+        boolean results = pstmt.execute( );
+        System.out.println("result");
     }
 }

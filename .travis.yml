@@ -8,3 +8,32 @@ script:
 
 notifications:
   email: ravi.mergu@outlook.com
+
+env:
+  global:
+    COVERITY_SCAN_TOKEN: GyEw89NQ6JNoK2gAfM43WA
+    # ** specific to your project **
+    #- secure: "GyEw89NQ6JNoK2gAfM43WA"
+
+addons:
+  coverity_scan:
+
+    # GitHub project metadata
+    # ** specific to your project **
+    project:
+      name: ravioutlook/Practice2
+    # Where email notification of build analysis results will be sent
+    notification_email: ravi.mergu@outlook.com
+
+    # Commands to prepare for build_command
+    # ** likely specific to your build **
+    #build_command_prepend: ./configure
+
+    # The command that will be added as an argument to "cov-build" to compile your project for analysis,
+    # ** likely specific to your build **
+    build_command: mvn clean install
+
+    # Pattern to match selecting branches that will run analysis. We recommend leaving this set to 'coverity_scan'.
+    # Take care in resource usage, and consider the build frequency allowances per
+    #   https://scan.coverity.com/faq#frequency
+    branch_pattern: main
